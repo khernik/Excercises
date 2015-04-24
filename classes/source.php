@@ -10,6 +10,12 @@ class Source {
         $this->fromCode = $fromCode;
     }
 
+    /**
+     * Get the source of the given website using the
+     * specified encoding
+     *
+     * @return string
+     */
     public function file_get_contents_utf8()
     {
         $output = file_get_contents($this->url);
@@ -24,6 +30,11 @@ class Source {
         $this->regex = $regex;
     }
 
+    /**
+     * Match specified regex
+     *
+     * @return mixed
+     */
     public function getSourcePart()
     {
         $source = $this->file_get_contents_utf8($this->url, 'ISO-8859-2');
