@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend excercise</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#checkAll").click(function () {
+                $('input:checkbox').not(this).prop('checked', this.checked);
+            });
+            $("#selects").blur(function () {
+                var htmlCode = "<fieldset>";
+
+                for(i = 0; i < this.value; i++)
+                {
+                    htmlCode = htmlCode + "<select></select><br><br>";
+                }
+
+                htmlCode = htmlCode + "</fieldset>";
+
+                $("#selectsFieldset").html(htmlCode);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <fieldset>
+            <legend><input type="checkbox" name="all" id="checkAll">Grupa opcji</legend>
+            <label><input type="checkbox" name="opcja-1">Opcja 1</label>
+            <label><input type="checkbox" name="opcja-2">Opcja 2</label>
+            <label><input type="checkbox" name="opcja-3">Opcja 2</label>
+        </fieldset>
+        <br><hr align="left"><br>
+        <input type="text" id="selects" placeholder="number of selects...">
+        <br><br>
+        <div id="selectsFieldset"><!-- Selects go here  --></div>
+
+        <br><br>
+        <button><a href="index.html">Back</a></button>
+    </div>
+</body>
+</html>
