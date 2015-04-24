@@ -11,6 +11,13 @@
                 $('input:checkbox').not(this).prop('checked', this.checked);
             });
             $("#selects").blur(function () {
+
+                if(this.value < 0)
+                {
+                    alert("This number cannot be less then 0");
+                    return false;
+                }
+
                 var htmlCode = "<fieldset>";
 
                 for(i = 0; i < this.value; i++)
